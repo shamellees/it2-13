@@ -1,0 +1,46 @@
+import pygame
+import sys
+
+pygame.init()
+
+WIDTH, HEIGHT = 300, 300
+LINE_WIDTH = 15
+BOARD_SIZE = 3
+SPACE = WIDTH // BOARD_SIZE  # длина клетки
+BACKGROUND_COLOR = (28, 170, 156)
+LINE_COLOR = (23, 145, 135)
+CIRCLE_COLOR = (239, 231, 200)
+CROSS_COLOR = (66, 66, 66)
+WHITE = (255, 255, 255)
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption('Крестики нолики')
+player = 'x'
+winner = None
+# row ряд(линия) col колонка(столбцы)
+jryj = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("xo")
+
+
+def lines():
+    pygame.draw.line(jryj, WHITE, (0, SPACE), (WIDTH, SPACE), LINE_WIDTH)
+    pygame.draw.line(jryj, WHITE, (0, SPACE * 2), (WIDTH, SPACE * 2), LINE_WIDTH)
+    pygame.draw.line(jryj, WHITE, (SPACE, 0), (SPACE, HEIGHT), LINE_WIDTH)
+    pygame.draw.line(jryj, WHITE, (SPACE * 2, 0), (SPACE * 2, HEIGHT), LINE_WIDTH)
+
+
+# def figuri():
+
+def reset():
+    global board
+    board = [[None] * BOARD_SIZE for _ in range(BOARD_SIZE)]
+
+
+def check_win():
+    global board, winner
+    for row in range(BOARD_SIZE):
+        if board[row][0] == board[row][1] == board[row][2] != None:
+            print('выиграл', board[row][0])
+            return True
+
+# def play():
+# while True:
