@@ -1,0 +1,35 @@
+class Student:
+    def __init__(self,name,grades):
+        self.name = name
+        self.grades = grades
+
+    def add_grade(self,subject,grade):
+        self.grades[subject].append(grade)
+        return self.grades[subject]
+    def average_grade(self, subject):
+        a = 0
+        for i in range(len(self.grades[subject])):
+            a += self.grades[subject][i]
+        return a/len(self.grades[subject])
+    def overal_average(self):
+        x = 0
+        y = 0
+        for i in list(self.grades):
+            for j in range(len(self.grades[i])):
+                x += self.grades[i][j]
+                y += 1
+        return x/y
+
+            
+
+Tolya = Student(
+    name='Tolya',
+    grades={
+        "математика":[5, 5],
+        "русский язык":[4, 4],
+        "информатика":[3, 3]
+    }
+)
+print(Tolya.add_grade('математика', 4))
+print(Tolya.average_grade('математика'))
+print(Tolya.overal_average())
