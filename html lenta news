@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Лента новостей</title>
+    </head>
+    <body>
+        <div class="lenta">
+            <left><h2>Лента</h2></left>
+            <div class="btn-container">
+                <button>Мой профиль</button>
+                <button>Новое действие</button>
+            </div>
+        </div>
+        <div class="news">
+            <p></p>
+            <div class="news1">
+                <left><h2>Новое обновление системы</h2></left>
+                <p>Мы рады сообщить о выпуске нового обновления, которое включает улучшенную производительность и новые функции</p>
+                <div class="cat">
+                    <img src="https://static.mk.ru/upload/entities/2022/03/03/12/articles/facebookPicture/a3/3e/d8/c6/64e9f6dfa4511dc92f19a3f76684a8f1.jpg" width="400px">
+                </div>
+            </div>
+            <p></p>
+            <div class="news2">
+                
+            </div>
+        </div>
+    </body>
+</html>
