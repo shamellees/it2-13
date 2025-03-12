@@ -1,0 +1,6 @@
+media = {
+    'images':[
+        "https://masterpiecer-images.s3.yandex.net/5fd531dca6427c7:upscaled",
+        "https://i.pinimg.com/736x/f4/d2/96/f4d2961b652880be432fb9580891ed62.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCjDspA0art3eJ5lx09KRA-vYWuAkqFc0GdA&s"]
+}
