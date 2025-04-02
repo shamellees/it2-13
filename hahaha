@@ -1,0 +1,62 @@
+#BotFather -> 7369366464:AAEAAGTFnOHcTCyG5ERzLnaDBbdXXyXueQU
+import asyncio
+import random
+
+from aiogram import Bot, Dispatcher, types
+from aiogram.filters import Command
+
+from media import media
+
+bot = Bot(token="7369366464:AAEAAGTFnOHcTCyG5ERzLnaDBbdXXyXueQU")
+dp = Dispatcher()
+
+@dp.message(Command('start'))
+async def cmd_start(message: types.message):
+    print('/start')
+    await message.answer('Привет')
+
+def get_random_img(media):
+    try:
+        urls = media.get('images', [])
+        return random.choice(urls) if urls else None
+    except Exception:
+        print(Exception)
+        return Exception
+
+@dp.message(Command('img'))
+async def cmd_img(message: types.message):
+    try:
+        url = get_random_img(media)
+        if url:
+            await message.answer_photo(url)
+        else:
+            await message.text("фоток нет(")
+    except Exception as e:
+        await message.answer(str(e))
+
+@dp.message(Command('echo'))
+async def cmd_start(message: types.message):
+    text = message.text.replace('/echo', "").strip()
+    if text:
+        await message.answer(text)
+    else:
+        await message.answer("добавь текста к команде")
+
+
+@dp.message(Command('КНБ'))
+async def cmd_start(message: types.message):
+    knbm = ["камень", "ножницы", "бумага"]
+    bot = random.choice(knbm)
+    user = message.text.replace("/КНБ", "").strip()
+    if bot==user:
+        await message.answer(f"ничья! \n бот выбрал: {bot} \n ты выбрал: {user}")
+    elif bot=="камень" and user=="ножницы" or bot=="ножницы" and user=="бумага" or bot=="бумага" and user=="камень":
+        await message.answer(f"бот победил! \n бот выбрал: {bot} \n ты выбрал: {user}")
+    else:
+        await message.answer(f"ты победил! \n бот выбрал: {bot} \n ты выбрал: {user}")
+
+async def main():
+    await dp.start_polling(bot)
+
+if __name__ == "__main__":
+    asyncio.run(main())
